@@ -1,0 +1,63 @@
+
+[control]
+ansible-master
+
+[centos]
+centos-2 ansible_port=2222
+centos-[3:4]
+
+#[ubuntu]
+#ubuntu[1:3]
+
+[linux:children]
+centos
+#ubuntu
+
+
+
+**************************************************************
+
+
+https://releases.ansible.com/ansible-tower/setup/ansible-tower-setup-latest.tar.gz
+git clone https://github.com/ansible/ansible.git
+
+git clone https://github.com/spurin/masteringansible.git
+
+
+/home/masteringansible/03 - Ansible Playbooks, Advanced Topics/02 - Dynamic Inventories/01
+/home/masteringansible/03 - Ansible Playbooks, Advanced Topics/08 - Blocks/03
+
+# ansible-playbook vault_playbook.yml  --ask-vault-pass
+# ansible-vault --ask-vault-pass encrypt external_vault_vars.yml
+# ansible-vault encrypt_string --ask-vault-pass --name 'ansible_become_pass' 'password'
+
+
+# create role
+#ansible-galaxy init /etc/ansible/roles/apache --offline
+ansible-galaxy is the command to create a role
+init is to intialise the role
+apache is the name of the role
+offline: create offline repo rather that  getting it from onine repository
+
+/etc/ansible/roles/apache
+├── defaults
+│   └── main.yml
+├── files
+├── handlers
+│   └── main.yml
+├── meta
+│   └── main.yml
+├── README.md
+├── tasks
+│   └── main.yml
+├── templates
+├── tests
+│   ├── inventory
+│   └── test.yml
+└── vars
+    └── main.yml
+
+Directory structure
+tasks: it contains the main list of task to beexecuted
+handler: conatins all the handler
+default:
