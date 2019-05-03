@@ -1,0 +1,436 @@
+    1  kill -9 18734
+    2  exit
+    3  yum -y update
+    4  init 0
+    5  init 5
+    6  init 3
+    7  ifconfig -a |more
+    8  systemctl get-defauly
+    9  systemctl get-default
+   10  ifconfig -a |more
+   11  systemctl set-default multi-user.target
+   12  init 6
+   13  ifconfig -a |more
+   14  init 0
+   15  yum install ansible
+   16  clear
+   17  python
+   18  ansible --version
+   19  cd /etc/ansible/
+   20  ls
+   21  cat ansible.cfg 
+   22  hostname
+   23  hostname anible-master
+   24  hostname
+   25  cat /etc/ansible/
+   26  ls
+   27  cat ansible.cfg 
+   28  hostnamectl set-hostname --static ansible-master
+   29  hostname
+   30  reboot
+   31  ls
+   32  cat /root/hosts
+   33  cat /etc/hosts
+   34  ip a
+   35  history
+   36  cd /home/masteringansible/03\ -\ Ansible\ Playbooks\,\ Advanced\ Topics/03\ -\ register\ and\ when/01/
+   37  ls
+   38  cat register_playbook.yml 
+   39  vi hosts 
+   40  cat register_playbook.yml 
+   41  ansible-playbook register_playbook.yml 
+   42  vi hosts 
+   43  ansible-playbook register_playbook.yml 
+   44  vi hosts 
+   45  ansible-playbook register_playbook.yml 
+   46  ssh centos-4
+   47  vi /etc/hosts
+   48  ansible-playbook register_playbook.yml 
+   49  vi hosts 
+   50  ansible-playbook register_playbook.yml 
+   51  vi hosts 
+   52  vi /etc/hosts
+   53  vi hosts 
+   54  cd ../05/
+   55  ls
+   56  vi hosts 
+   57  vi register_playbook.yml 
+   58  ansible-playbook register_playbook.yml 
+   59  vi register_playbook.yml 
+   60  ansible centos-2 -m setup 
+   61  ansible centos-2 -m setup | more
+   62  vi /etc/hosts
+   63  ansible centos-2:2222 -m setup | more
+   64  vi hosts 
+   65  ansible-playbook register_playbook.yml 
+   66  vi hosts 
+   67  vi register_playbook.yml 
+   68  ip a
+   69  vi /etc/hosts
+   70  ssh centos-1
+   71  ssh centos-1 -p 2222
+   72  ls
+   73  vi hosts
+   74  cd ../01/
+   75  vi hosts
+   76  ansible-playbook register_playbook.yml 
+   77  vi hosts
+   78  vi /etc/hosts
+   79  ansible-playbook register_playbook.yml 
+   80  centos-4                   : ok=2    changed=1    unreachable=0    failed=0
+   81  [root@ansible-master 05]# vi register_playbook.yml
+   82  [root@ansible-master 05]# ansible centos-2 -m setup
+   83  [root@ansible-master 05]# ansible centos-2 -m setup | more
+   84  centos-2 | UNREACHABLE! => {
+   85      "changed": false,
+   86      "msg": "Failed to connect to the host via ssh: ssh: connect to host centos-2 port 2222: No route to host\r\n",
+   87      "unreachable": true
+   88  }
+   89  [root@ansible-master 05]# vi /etc/hosts
+   90  [root@ansible-master 05]# ansible centos-2:2222 -m setup | more
+   91   [WARNING]: Could not match supplied host pattern, ignoring: centos-2:2222
+   92   [WARNING]: No hosts matched, nothing to do
+   93  [root@ansible-master 05]# vi hosts
+   94  [root@ansible-master 05]# ansible-playbook register_playbook.yml
+   95  PLAY [linux] ***********************************************************************************************************************************************************
+   96  TASK [Gathering Facts] *************************************************************************************************************************************************
+   97  fatal: [centos-2]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host centos-2 port 2222: No route to host\r\n", "unreachable": true}
+   98  ok: [centos-4]
+   99  ok: [centos-3]
+  100  TASK [Exploring register] **********************************************************************************************************************************************
+  101  skipping: [centos-3]
+  102  skipping: [centos-4]
+  103          to retry, use: --limit @/home/masteringansible/03 - Ansible Playbooks, Advanced Topics/03 - register and when/05/register_playbook.retry
+  104  PLAY RECAP *************************************************************************************************************************************************************
+  105  centos-2                   : ok=0    changed=0    unreachable=1    failed=0
+  106  centos-3                   : ok=1    changed=0    unreachable=0    failed=0
+  107  centos-4                   : ok=1    changed=0    unreachable=0    failed=0
+  108  [root@ansible-master 05]# vi hosts
+  109  [root@ansible-master 05]# vi register_playbook.yml
+  110  [root@ansible-master 05]#
+  111  cd ../03/
+  112  ls
+  113  vi register_playbook.yml 
+  114  cd
+  115  cd /home/masteringansible/03\ -\ Ansible\ Playbooks\,\ Advanced\ Topics/03\ -\ register\ and\ when/02
+  116  ls
+  117  vi register_playbook.yml 
+  118  vi _playbook.yml 
+  119  ansible-playbook  _playbook.yml 
+  120  vi host
+  121  vi hosts
+  122  ansible-playbook  _playbook.yml 
+  123  vi _playbook.yml 
+  124  ansible-playbook  _playbook.yml 
+  125  vi _playbook.yml 
+  126  ansible-playbook  _playbook.yml 
+  127  vi _playbook.yml 
+  128  pwd
+  129  cd ../01/
+  130  ls
+  131  vi register_playbook.
+  132  vi register_playbook.yml 
+  133  vi myplay.yml
+  134  pwd
+  135  cd ../03/
+  136  ls
+  137  cd ..
+  138  cd ../03\ -\ register\ and\ when/03/
+  139  ls
+  140  vi register_playbook.yml 
+  141  cd ..
+  142  ls
+  143  cd 08\ -\ Blocks/
+  144  ls
+  145  cd 01/
+  146  ls
+  147  vi blocks_playbook.yml 
+  148  cd ../02/
+  149  ls
+  150  vi blocks_playbook.yml 
+  151  cd ../03/
+  152  ls
+  153  vi blocks_playbook.yml 
+  154  pwd
+  155  vi blocks_playbook.yml 
+  156  pwd
+  157  cd
+  158  git
+  159  git log
+  160  ls
+  161  cd masteringansible/
+  162  ls
+  163  git config --get remote.origin.url
+  164  ls
+  165  cd 03\ -\ Ansible\ Playbooks\,\ Advanced\ Topics/09\ -\ Ansible\ Vault/01
+  166  ls
+  167  cat group_vars/
+  168  ls
+  169  cd group_vars/
+  170  ls
+  171  cat centos
+  172  cat dns 
+  173  cd ..
+  174  ls
+  175  cd host_vars/
+  176  ls
+  177  cat centos1 
+  178  cd ..
+  179  ls
+  180  cat ansible.cfg 
+  181  ansible-vault encrypt_string --ask-valut-pass --name 'ansible_become_pass' 'password'
+  182  ls
+  183  ghost encrypt_string
+  184  dust encrypt_string
+  185  vi encrypt_string
+  186  ansible-vault encrypt_string --ask-valut-pass --name 'ansible_become_pass' 'password'
+  187  ls
+  188  ansible-vault encrypt_string --ask-valut-pass --name 'ansible_become_pass' 'password'
+  189  ansible-vault encrypt_string --ask-vault-pass --name 'ansible_become_pass' 'password'
+  190  ls
+  191  rm encrypt_string 
+  192  ls
+  193  cd group_vars/
+  194  ls
+  195  cat centos 
+  196  cd ..
+  197  ls
+  198  cat ansible.cfg 
+  199  cd host_vars/
+  200  ls
+  201  cat centos1 
+  202  cat ubuntu-c 
+  203  cd ..
+  204  ls
+  205  ansible-vault encrypt_string --ask-vault-pass --name 'ansible_become_pass' 'password'
+  206  cd host_vars/
+  207  ls
+  208  cat centos1 
+  209  ls
+  210  cat ubuntu-c 
+  211  cd ..
+  212  cd group_vars/
+  213  ls
+  214  cat ubuntu 
+  215  cd ..
+  216  ls
+  217  vi hosts 
+  218  cd ../02/
+  219  ls
+  220  cat vault_playbook.yml 
+  221  Wq
+  222  ls
+  223  cat external_vault_vars.yml 
+  224  ansible-vault encrypt_string --ask-vault-pass --name 'ansible_become_pass' 'password'
+  225  cat external_vault_vars.yml 
+  226  cat vault_playbook.yml 
+  227  wq
+  228  ls
+  229  ansible-vault  --ask-vault-pass encrypt external_vault_vars.yml
+  230  cat external_vault_vars.yml 
+  231  ansible-playbook external_vault_vars.yml 
+  232  ansible-playbook external_vault_vars.yml --ask-valut-pass
+  233  ansible-playbook external_vault_vars.yml --ask-vault-pass
+  234  ansible all --ask-valut-pass -m debug -a 'var=ansible_become_pass'
+  235  ansible all --ask-vault-pass -m debug -a 'var=ansible_become_pass'
+  236  vi hosts 
+  237  ansible all --ask-vault-pass -m debug -a 'var=ansible_become_pass'
+  238  ls
+  239  cat external_vault_vars.yml 
+  240  ls
+  241  vi centos 
+  242  ansible-playbook vault_playbook.yml  --ask-vault-pass
+  243  cd ..
+  244  ansible-playbook vault_playbook.yml  --ask-vault-pass
+  245  ansible-vault --ask-vault-pass encrypt external_vault_vars.yml
+  246  ansible-vault encrypt_string --ask-vault-pass --name 'ansible_become_pass' 'password'[root@ansible-master 02]# ansible-vault encrypt_string --ask-vault-pass --name 'ansible_become_pass' 'password'
+  247  ansible-vault --ask-vault-pass view external_vault_vars.yml
+  248  cd ..
+  249  cd ../10\ -\ Creating\ Custom\ Modules/
+  250  ls
+  251  git clone https://github.com/ansible/ansible.git
+  252  ls
+  253  ls git clone https://github.com/ansible/ansible.git
+  254  ls
+  255  mv ansible/ /home/
+  256  ls
+  257  cd
+  258  ls
+  259  cd /home/ansible/
+  260  ls
+  261  cd
+  262  ls
+  263  cd /home/masteringansible/
+  264  ls
+  265  cd 03\ -\ Ansible\ Playbooks\,\ Advanced\ Topics/
+  266  ls
+  267  cd 01\ -\ Ansible\ Playbook\ Modules/
+  268  ls
+  269  cd 01
+  270  ls
+  271  cat set_fact_playbook.yml 
+  272  ls
+  273  vi hosts
+  274  vi test.sh
+  275  ./test.sh
+  276  ls l
+  277  ls -l
+  278  chmod x test.sh 
+  279  chmod +x test.sh 
+  280  ls -l
+  281  ./test.sh
+  282  vi set_fact_playbook.yml 
+  283  ansible-playbook set_fact_playbook.yml 
+  284  vi set_fact_playbook.yml 
+  285  ansible-playbook set_fact_playbook.yml 
+  286  ls
+  287  ansible-playbook set_fact_playbook.yml 
+  288  vi set_fact_playbook.yml 
+  289  ansible-playbook set_fact_playbook.yml 
+  290  vi hosts
+  291  ls
+  292  cd
+  293  source /home/ansible/hacking/env-setup
+  294  ls
+  295  cd /home/masteringansible/03\ -\ Ansible\ Playbooks\,\ Advanced\ Topics/10\ -\ Creating\ Custom\ Modules/
+  296  cd 01
+  297  ls
+  298  /root/src/ansible/hacking/test-module -m ./icmp.sh
+  299  ls
+  300  cd
+  301  cd /home/ansible/
+  302  ls
+  303  cd hacking/
+  304  ls
+  305  cd
+  306  cd /home/masteringansible/04\ -\ Structuring\ Ansible\ Playbooks/01\ -\ Using\ Include\ and\ Import/01/
+  307  ls
+  308  vi include_playbook.yml 
+  309  vi play1_task2.yml 
+  310  book.yml  group_vars  hosts  host_vars  icmp.sh
+  311  [root@ansible-master 01]# /root/src/ansible/hacking/test-module -m ./icmp.sh
+  312  -bash: /root/src/ansible/hacking/test-module: No such file or directory
+  313  cd
+  314  cd /home/masteringansible/04\ -\ Structuring\ Ansible\ Playbooks/01
+  315  ls
+  316  cd /home/masteringansible/04\ -\ Structuring\ Ansible\ Playbooks/02\ -\ Using\ Tags/
+  317  ls
+  318  cd 01
+  319  ls
+  320  vi nginx_playbook.yml 
+  321  cd ../03/
+  322  ls
+  323  vi nginx_playbook.yml 
+  324  vi hosts
+  325  vi nginx_playbook.yml 
+  326  ansible-playbook  nginx_playbook.yml --tags 'install-epel'
+  327  vi nginx_playbook.yml 
+  328  ansible-playbook  nginx_playbook.yml --tags 'install-epel'
+  329  ssh centos-2
+  330  ssh centos-2 -p 2222
+  331  cd /home/masteringansible/04\ -\ Structuring\ Ansible\ Playbooks/03\ -\ Using\ Roles/01/
+  332  ls
+  333  yum install tree
+  334  tree
+  335  cat nginx_playbook.yml 
+  336  wq
+  337  cd ../02/
+  338  ls
+  339  tree
+  340  ansible-galaxy init /etc/ansible/roles/apache --offline
+  341  tree init /etc/ansible/roles/apache 
+  342  ls
+  343  cd /etc/ansible/roles/apache
+  344  ls
+  345  cd tasks/
+  346  ls
+  347  vi main.yml 
+  348  touch install.yml
+  349  touch configure.yml
+  350  ls
+  351  vi install.yml 
+  352  vi main.yml 
+  353  pwd
+  354  cd ..
+  355  pwd
+  356  cd ..
+  357  pwd
+  358  vi ansible.yml
+  359  hostname
+  360  ip a
+  361  systemctl stop firewalld
+  362  systemctl stop selinux
+  363  systemctl status selinux
+  364  systemctl status se
+  365  systemctl status firewalld
+  366  systemctl disable firewalld
+  367  systemctl status firewalld
+  368  se status
+  369  sestatus
+  370  vi /etc/selinux/config 
+  371  systemctl status firewalld
+  372  reboot
+  373  ip a
+  374  ls
+  375  tar -xvf ./tower/ansible-tower-setup-latest.tar.gz 
+  376  cd tower/
+  377  ls
+  378  cd ..
+  379  ls
+  380  cd ansible-tower-setup-3.4.3-1/
+  381  ls
+  382  cat inventory 
+  383  vi inventory 
+  384  ./setup.sh 
+  385  yum install epel-release
+  386  python pip upgrade ansible
+  387  yum install python pip
+  388  pip install ansible
+  389  yum install python-pip
+  390  pip install ansible
+  391  pip install --upgrade pip
+  392  pip install ansible
+  393  pip upgrade ansible
+  394  pip update ansible
+  395  yum upgrade ansible
+  396  ./setup.sh 
+  397  ip a
+  398  vi inventory 
+  399  cat /etc/hosts
+  400  cd
+  401  cd /home/masteringansible/04\ -\ Structuring\ Ansible\ Playbooks/02\ -\ Using\ Tags/
+  402  ls
+  403  cd 03/
+  404  ls
+  405  pwd
+  406  ls
+  407  git status
+  408  git init
+  409  git status
+  410  git add
+  411  git commit -m 'my first playbook'
+  412  git config --global user.email 'ajaykann64@gmail.com'
+  413  git config --global user.user 'ajay'
+  414  git commit -m 'my first playbook'
+  415  git config --global user.name 'ajay'
+  416  git commit -m 'my first playbook'
+  417  git remote add origin https://github.com/ajaykann64/myrepo.git
+  418  git push -u origin master
+  419  git push origin BRANCH --force
+  420  git init
+  421  cd
+  422  git init
+  423  git config --global user.email 'ajaykann64@gmail.com'
+  424  git config --global user.name 'ajay'
+  425  git init
+  426  git remote add origin https://github.com/ajaykann64/myrepo.git
+  427  git push -u origin master
+  428  git add
+  429  git add.
+  430  git add .
+  431  git commit -m 'my first playbook'
+  432  git remote add origin https://github.com/ajaykann64/myrepo.git
+  433  git push -u origin master
+  434  history
+  435  ls
+  436  history > history.txt
