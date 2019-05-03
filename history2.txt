@@ -1,0 +1,43 @@
+  2  exit
+    3  yum -y update
+    4  init 0
+    5  hostnamectl set-hostname centos-2
+    6  hostname
+    7  cat /etc/hosts
+    8  init 6
+    9  init 3
+   10  systemctl set-default multi.user target
+   11  systemctl set-default multi-user.target
+   12  init 6
+   13  ifconfig -a |more
+   14  ping 192.168.23.129
+   15  exit
+   16  init 0
+   17  exit
+   18  hostname
+   19  hostname centos-1
+   20  hostname
+   21  clear
+   22  hostname
+   23  ipconfig
+   24  ip a
+   25  ls
+   26  cat /root/.ssh/authorized_keys
+   27  cd /etc/ssh/sshd_config
+   28  vi /etc/ssh/ssh_config
+   29  systemctl ssh
+   30  vi /etc/ssh/ssh_config
+   31  vi /etc/selinux/config
+   32  systemctl ssh restart
+   33  systemctl restart sshd
+   34  systemctl status sshd
+   35  vi /etc/ssh/sshd_config
+   36  systemctl restart sshd
+   37  getenforce
+   38  reboot
+   39  exit
+   40  pwd
+   41  vi ansibleplay1.yml
+   42  ls
+   43  exit
+
